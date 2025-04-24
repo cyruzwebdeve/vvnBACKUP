@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFFCEF;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    gap: 15px;
+    background-color: #800020;
+    padding: 15px;
+}
+
+.menu-icon {
+    font-size: 30px;
+    color: #FFFCEF;
+    cursor: pointer;
+}
+
+#search-input {
+    padding: 10px;
+    width: 65%;
+}
+
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background: #fff;
+    width: 60%;
+    display: none;
+    margin-top: 40px;
+    margin-left: 46px;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+.logo img {
+    background-color: #800020;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logo p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: #800020;
+    width: 300px;
+    height: 110px;
+    padding: 15px;
+}
+
+.card a {
+    color: #FFFCEF;
+    text-decoration: none;
+}
+
+.card h1 {
+    font-size: 20px;
+}
+
+.card p {
+    display: none;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #800020;
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 10px 20px;
+}
+
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#sidebar-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 998;
+}
+
+#sidebar.active+#sidebar-mask {
+    opacity: 1;
+    visibility: visible;
+}
+
+#sidebar {
+    z-index: 999;
+    /* Above the mask */
+}

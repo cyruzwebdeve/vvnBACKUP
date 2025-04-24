@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>VVN</title>
+
+    <body>
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+            <input type="text" id="search-input" placeholder="Search for a term..." oninput="showSuggestions()" autocomplete="off">
+            <div id="suggestions"></div>
+        </header>
+        <nav id="sidebar">
+            <div class="close-btn" onclick="toggleSidebar()">&times;</div>
+            <ul>
+                <li><a href="dictionary.html">Dictionary</a></li>
+                <li><a href="saved.html">Saved Words</a></li>
+                <li><a href="manual.html">User Manual</a></li>
+            </ul>
+        </nav>
+        <div id="sidebar-mask" onclick="toggleSidebar()"></div>
+
+        <section class="logo">
+            <img src="Your paragraph text.png" alt="">
+            <p>FEATURED WORDS</p>
+        </section>
+        <main>
+            <div class="card">
+                <a href="detail.html?word=Word1">
+                    <h2 class="title">Word1</h2>
+                    <p class="sub-def">Brief definition of Word1</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail.html?word=Word2">
+                    <h2 class="title">Word2</h2>
+                    <p class="sub-def">Brief definition of Word2</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail.html?word=Word3">
+                    <h2 class="title">Word3</h2>
+                    <p class="sub-def">Brief definition of Word3</p>
+                </a>
+            </div>
+        </main>
+        <script src="script.js"></script>
+        <script src="dictionary.js"></script>
+    </body>
+
+</html>

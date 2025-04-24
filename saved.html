@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Words</title>
+    <link rel="stylesheet" href="details.css" />
+    <script src="https://kit.fontawesome.com/ef95fa948b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#" onclick="goBack()" class="back-button"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+        <h1 class="saved">Saved Words</h1>
+    </header>
+
+    <ul class="word-list" id="savedWordsList"></ul>
+
+    <script>
+        const savedWords = JSON.parse(localStorage.getItem("savedWords") || "[]");
+        const listContainer = document.getElementById("savedWordsList");
+
+        if (savedWords.length === 0) {
+            listContainer.innerHTML = "<p>No saved words yet.</p>";
+        } else {
+            savedWords.forEach(word => {
+                const li = document.createElement("li");
+                li.className = "word-item";
+                li.innerHTML = `
+                    <span>${word}</span>
+                    <div class="word-actions">
+                        <button class="view-btn" onclick="viewWord('${word}')">View</button>
+                        <button class="delete-btn" onclick="deleteWord('${word}')">Delete</button>
+                    </div>
+                `;
+                listContainer.appendChild(li);
+            });
+        }
+
+        function viewWord(word) {
+            window.location.href = `detail.html?word=${encodeURIComponent(word)}`;
+        }
+
+        function deleteWord(word) {
+            const updatedWords = savedWords.filter(w => w !== word);
+            localStorage.setItem("savedWords", JSON.stringify(updatedWords));
+            location.reload();
+        }
+
+
+
+        function goBack() {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                window.location.href = "dictionary.html"; // Fallback if no history
+            }
+        }
+    </script>
+</body>
+
+</html>
